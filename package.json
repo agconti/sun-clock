@@ -1,8 +1,8 @@
 {
-  "name": "clock",
+  "name": "sun-clock",
   "version": "1.0.0",
   "description": "a minimalistic clock in d3.js",
-  "main": "index.js",
+  "main": "js/main.js",
   "dependencies": {
     "gulp": "^3.8.10"
   },
@@ -16,16 +16,16 @@
     "gulp-util": "^3.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/agconti/clock.git"
+    "url": "https://github.com/agconti/sun-clock.git"
   },
-  "author": "",
+  "author": "Andrew Conti",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/agconti/clock/issues"
+    "url": "https://github.com/agconti/sun-clock/issues"
   },
-  "homepage": "https://github.com/agconti/clock"
+  "homepage": "http://agconti.github.io/sun-clock/"
 }
