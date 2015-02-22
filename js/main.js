@@ -1,4 +1,4 @@
-;(function(){
+// ;(function(){
 
 var time = getTime()
 
@@ -21,8 +21,8 @@ var time = getTime()
       .domain(maximumTime)
   , hourScale = d3.scale.ordinal()
       .domain(d3.range(24))
-  , horizonScale = d3.scale.ordinal()
-      .domain(d3.range(24))
+  , horizonScale = d3.scale.linear()
+      .domain([0,12,23])
 
   // legend config
   , labels = [ { value: 'AM', textAnchor: "start"}
@@ -136,5 +136,5 @@ setInterval(function() {
   tick(time)
 }, frameRate)
 
-})()
+// })()
     
