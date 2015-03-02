@@ -1,4 +1,4 @@
-// ;(function(){
+;(function(){
 
 var now = new Date()
   , time = getTime(now)
@@ -42,8 +42,7 @@ var now = new Date()
  * @param {object} now -- a Date object
  * @return {object} -- an array of the form [ milliseconds%, seconds%, minuets% ]
  */
-function getTime() {
-
+function getTime(now) {
   return [ now.getMilliseconds() / 999
          , now.getSeconds() / 60
          , now.getMinutes() / 60
@@ -54,15 +53,18 @@ function getTime() {
  * Sets the clocks scales to the current svg width and height
  */
 function setScales(){
+  var circleDiameter = svgHeight * 0.35
+    , circleRadius = circleDiameter / 2
+    
   d3.select('svg')
     .attr("height", svgHeight)
     .attr("width", svgWidth)
   radiusScale
-    .range([0, svgHeight * 0.35])
+    .range([0, circleDiameter])
   hourScale
     .rangeBands([-1, svgWidth])
   horizonScale
-    .range([svgHeight, 0, svgHeight])
+    .range([svgHeight, circleRadius, svgHeight])
   legendScale
     .range([legendMargin, svgWidth - legendMargin])
 }
@@ -138,5 +140,5 @@ setInterval(function() {
   tick(time)
 }, frameRate)
 
-// })()
+})()
     
