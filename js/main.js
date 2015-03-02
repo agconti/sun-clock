@@ -1,6 +1,7 @@
 // ;(function(){
 
-var time = getTime()
+var now = new Date()
+  , time = getTime(now)
 
   // svg config 
   , svgWidth = 900
@@ -9,6 +10,7 @@ var time = getTime()
   // clock config
   , clock = '.clock'
   , frameRate = 500
+  , now = new Date()
   , blue = 'hsl(221, 85%, 22%)'
   , peach = 'hsl(31, 100%, 50%)'
   , orange = 'hsl(41, 100%, 50%)'
@@ -16,6 +18,9 @@ var time = getTime()
   , colorScale = d3.scale.ordinal()
       .domain(d3.range(3))
       .range([peach, orange, yellow])
+  , opacityScale = d3.scale.linear()
+      .domain(d3.range(2))
+      .range([1, 0.7]) 
   , maximumTime = [-1, 1]
   , radiusScale = d3.scale.linear()
       .domain(maximumTime)
@@ -33,11 +38,12 @@ var time = getTime()
       .domain(d3.range(labels.length))
 
 /**
- * A factory that returns the current time.
- * @return {object} -- an array of the form [ miliseconds%, seconds%, minuets% ]
+ * A factory that returns the current time in a convenient array.
+ * @param {object} now -- a Date object
+ * @return {object} -- an array of the form [ milliseconds%, seconds%, minuets% ]
  */
-function getTime () {
-  var now = new Date()
+function getTime() {
+
   return [ now.getMilliseconds() / 999
          , now.getSeconds() / 60
          , now.getMinutes() / 60
@@ -83,7 +89,7 @@ function setSvgDimensions(){
     svgHeight = window.innerHeight
     setScales()
     setLegend()
-    tick(getTime())
+    tick(getTime(now))
 }
 
 
@@ -96,16 +102,11 @@ function tick (time){
     .data(time)
     .transition()
     .duration(frameRate)
-    .attr('cx', function(){ 
-      var now = new Date()
-      return hourScale(now.getHours())
-    })
-    .attr('cy', function(){
-      var now = new Date()
-      return horizonScale(now.getHours())
-    })
+    .attr('cx', function(){ return hourScale(now.getHours()) })
+    .attr('cy', function(){ return horizonScale(now.getHours()) })
     .attr("r", function(d){ return radiusScale(d) })
     .style('fill', function(d, i){ return colorScale(i) })
+    .style('opacity', function(d){ console.log(d, opacityScale(d)); return opacityScale(d) })
 }
 
 var svg = d3.select(clock)
@@ -116,7 +117,7 @@ var hands = svg.selectAll('g')
   .data(time).enter()
   .append('g')
 
-// append base cirlces, so we can update them
+// append base circles, so we can update them
 hands.append('circle')
      .style('fill', function(d, i){ return colorScale(i) })
 
@@ -132,7 +133,8 @@ window.onresize = setSvgDimensions
 
 // update the clock 
 setInterval(function() {
-  var time = getTime()
+  now = new Date()
+  var time = getTime(now)
   tick(time)
 }, frameRate)
 
