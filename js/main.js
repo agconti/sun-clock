@@ -106,7 +106,7 @@ function tick (time){
     .attr('cy', function(){ return horizonScale(now.getHours()) })
     .attr("r", function(d){ return radiusScale(d) })
     .style('fill', function(d, i){ return colorScale(i) })
-    .style('opacity', function(d){ console.log(d, opacityScale(d)); return opacityScale(d) })
+    .style('opacity', function(d){ return opacityScale(d) })
 }
 
 var svg = d3.select(clock)
