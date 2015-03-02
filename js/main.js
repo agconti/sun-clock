@@ -1,4 +1,4 @@
-// ;(function(){
+;(function(){
 
 var now = new Date()
   , time = getTime(now)
@@ -141,5 +141,5 @@ setInterval(function() {
   tick(time)
 }, frameRate)
 
-// })()
+})()
     
