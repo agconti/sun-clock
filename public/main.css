@@ -372,7 +372,33 @@ footer {
   color: #3c6fdd;
   text-align: center;
   width: 100%; }
+  footer div {
+    display: inline-block; }
   footer h1 {
     font-size: 1em; }
-  footer nav a {
-    padding: 0.5em; }
+  footer .social {
+    opacity: 0;
+    -webkit-transition: opacity 0.25s ease;
+            transition: opacity 0.25s ease; }
+    footer .social a {
+      padding: 0.5em; }
+  footer:hover .social {
+    opacity: 1; }
+
+.legend {
+  list-style: none;
+  padding: 0;
+  text-align: left; }
+  .legend .fa {
+    margin: 0 1em; }
+  .legend li {
+    display: inline; }
+
+.circle--minutes {
+  color: #ffd900; }
+
+.circle--seconds {
+  color: #ffae00; }
+
+.circle--milliseconds {
+  color: #ff8400; }
