@@ -1,0 +1,25 @@
+
+.legend {
+    list-style: none;
+    padding: 0;
+
+    .fa {
+        margin: 0 1em;
+    }
+    text-align: left;
+    li {
+        display: inline;
+    }
+}
+.circle--minutes {
+    color: $yellow;
+}
+
+.circle--seconds {
+    color: $orange;
+
+}
+
+.circle--milliseconds {
+    color: $peach;
+}
