@@ -15,13 +15,18 @@
     <![endif]-->
     <section class="clock center"></section>
     <footer>
-        <nav>
-            <a href="http://agconti.com/"><i class="fa fa-user"></i></a>
-            <a href="https://twitter.com/agconti"><i class="fa fa-twitter"></i></a>
-        </nav>
-        <header>
-            <h1>A minimalistic clock in <a href="http://d3js.org/">d3.js</a>.</h1>
-        </header>
+        <div>
+            <nav class="social">
+                <a href="http://agconti.com/"><i class="fa fa-user"></i></a>
+                <a href="https://twitter.com/agconti"><i class="fa fa-twitter"></i></a>
+            </nav>
+            <ul class="legend">
+                <li><i class="fa fa-rotate-270 fa-sliders"></i><span>hr</span></li>
+                <li><i class="fa fa-circle circle--minutes"></i><span>m</span></li>
+                <li><i class="fa fa-circle circle--seconds"></i><span>s</span></li>
+                <li><i class="fa fa-circle circle--milliseconds"></i><span>ms</span></li>
+            </ul>
+        </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
     <script>window.d3 || document.write('<script src="js/public/d3.3.5.3.min.js"><\/script>')</script>

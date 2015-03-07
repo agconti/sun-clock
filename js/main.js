@@ -42,8 +42,7 @@ var now = new Date()
  * @param {object} now -- a Date object
  * @return {object} -- an array of the form [ milliseconds%, seconds%, minuets% ]
  */
-function getTime() {
-
+function getTime(now) {
   return [ now.getMilliseconds() / 999
          , now.getSeconds() / 60
          , now.getMinutes() / 60
